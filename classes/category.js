@@ -20,10 +20,10 @@ export default class Category {
     return;
   }
   updateCategoryOnApi() {
-    fechData("https://bsite.net/metalflap/td-categoria", {
+    fechData("https://bsite.net/metalflap/td-categoria/6", {
       method: "PUT",
       headers: { "Content-type": "application/json;charset=UTF-8" },
-      body: JSON.stringify(this.id, this.name),
+      body: JSON.stringify({ nombre: this.name }),
     });
     return;
   }

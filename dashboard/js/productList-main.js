@@ -26,17 +26,13 @@ categoryData.then((categories) => {
     new Category(category.id, category.nombre);
   });
 });
-const categoryToAdd = {
-  nombre: "prueba136",
-};
 
-const newCategory = new Category(categoryToAdd);
-newCategory.addCategoryToApi();
+const newCategory = new Category({
+  nombre: "prueba21",
+});
+//newCategory.addCategoryToApi();
 
-const catToUpdate = { id: 6, nombre: "prueba3" };
 newCategory.updateCategoryOnApi();
-//Category.getAllCategories();
-//dataCategories.then((category) => console.log(category));
 
 //fechData("https://bsite.net/metalflap/td-categoria", { method: "GET" });
 
@@ -60,9 +56,10 @@ newCategory.updateCategoryOnApi();
   }),
 });*/
 
-/* for (let i = 0; i <= 100; i++) {
+/* for (let i = 71; i <= 120; i++) {
   fechData(`https://bsite.net/metalflap/td-categoria/${i}`, {
     method: "DELETE",
     headers: { "Content-type": "application/json;charset=UTF-8" },
   });
-} */
+}
+ */
