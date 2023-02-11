@@ -5,11 +5,13 @@ export const watchs = products.map(
   (product) =>
     new Product(
       product.id,
-      product.brand,
-      product.description,
-      product.features,
-      product.imageUrl,
+      product.name,
       product.price,
-      product.stock
+      product.link,
+      product.stock,
+      product.label,
+      product.description,
+      product.idCategoria,
+      product.idSurcursal
     )
 );

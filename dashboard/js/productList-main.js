@@ -21,22 +21,7 @@ deleteButton.forEach((button) => {
   });
 });
 
-categoryData.then((categories) => {
-  categories.forEach((category) => {
-    new Category(category.id, category.nombre);
-  });
-});
-
-const newCategory = new Category({
-  nombre: "prueba21",
-});
-//newCategory.addCategoryToApi();
-
-newCategory.updateCategoryOnApi();
-
-//fechData("https://bsite.net/metalflap/td-categoria", { method: "GET" });
-
-//fechData("https://bsite.net/metalflap/td-producto");
+fechData("https://bsite.net/metalflap/td-categoria", { method: "GET" });
 
 /* getData("https://bsite.net/metalflap/td-categoria", {
   method: "POST",
