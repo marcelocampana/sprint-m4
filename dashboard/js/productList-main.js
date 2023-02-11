@@ -18,9 +18,9 @@ deleteButton.forEach((button) => {
   });
 });
 
-fechData("https://bsite.net/metalflap/td-categoria", { method: "GET" });
+// fechData("https://bsite.net/metalflap/td-categoria", { method: "GET" });
 
-//fechData("https://bsite.net/metalflap/td-producto");
+fechData("https://bsite.net/metalflap/td-producto", { method: "GET" });
 
 /* getData("https://bsite.net/metalflap/td-categoria", {
   method: "POST",
@@ -44,3 +44,6 @@ fechData("https://bsite.net/metalflap/td-categoria", {
   method: "DELETE",
   headers: { "Content-type": "application/json;charset=UTF-8" },
 }); */
+
+
+
