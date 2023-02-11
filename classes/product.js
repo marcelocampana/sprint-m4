@@ -23,7 +23,7 @@ export default class Product {
       descripcion: this.description,
       idCategoria: this.idCategoria,
       idSucursal: this.idSucursal
-      }
+    }
     const options = {
         method: "POST",
         body: JSON.stringify(data),

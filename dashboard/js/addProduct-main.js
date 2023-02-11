@@ -8,8 +8,8 @@ sidebar.innerHTML = Sidebar();
 const addProductToStock = document.getElementById("add-product");
 addProductToStock.innerHTML = AddProduct();
 
+// Obtner datos ingresados en el formulario
 let newProduct;
-let newCategory;
 let inputValue = document.getElementsByClassName('form-control');
 let sendButton = document.getElementById('add-product-button');
 
@@ -20,7 +20,7 @@ function sendProduct() {
   for(let i = 0; i < inputValue.length; i++) {
       productData.push(inputValue[i].value);
   }
-  newProduct = new Product( parseInt(productData[0]), 
+  newProduct = new Product( parseInt(productData[0]),
                             productData[1], 
                             parseInt(productData[2]), 
                             productData[3], 
@@ -29,6 +29,6 @@ function sendProduct() {
                             productData[6],
                             parseInt(productData[7]),
                             parseInt(productData[8]) );
-  console.log(newProduct);
+  // console.log(newProduct);
   newProduct.sendData();
 }

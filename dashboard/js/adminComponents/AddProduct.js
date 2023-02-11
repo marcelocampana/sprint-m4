@@ -6,7 +6,7 @@ export default function AddProduct() {
     <p class="mb-4">Ingresa los datos del producto a agregar</p>
     <div class="mb-3">
       <label for="admin-add-id" class="form-label" disable>ID</label>
-      <input type="text" class="form-control" id="admin-add-id" required />
+      <input type="number" class="form-control" id="admin-add-id" required />
     </div>
     <div class="mb-3">
       <label for="admin-add-name" class="form-label" disable>Nombre</label>
@@ -14,7 +14,7 @@ export default function AddProduct() {
     </div>
     <div class="mb-3">
       <label for="admin-add-price" class="form-label" disable>Precio</label>
-      <input type="text" class="form-control" id="admin-add-price" required />
+      <input type="number" class="form-control" id="admin-add-price" required />
     </div>
     <div class="mb-3">
       <label for="admin-add-imageUrl" class="form-label">URL del imagen</label>
@@ -22,7 +22,7 @@ export default function AddProduct() {
     </div>
     <div class="mb-3">
       <label for="admin-add-stock" class="form-label" disable>Stock</label>
-      <input type="text" class="form-control" id="admin-add-stock" required />
+      <input type="number" class="form-control" id="admin-add-stock" required />
     </div>
     <div class="mb-3">
       <label for="admin-add-label" class="form-label">Etiqueta</label>
@@ -34,19 +34,14 @@ export default function AddProduct() {
     </div>
     <div class="mb-3">
       <label for="admin-add-idcategory" class="form-label">ID Categoría</label>
-      <input type="text" class="form-control" id="admin-add-idcategory" required />
+      <input type="number" class="form-control" id="admin-add-idcategory" required />
     </div>
     <div class="mb-3">
       <label for="admin-add-idsucursal" class="form-label">ID Sucursal</label>
-      <input type="text" class="form-control" id="admin-add-idsucursal" required />
+      <input type="number" class="form-control" id="admin-add-idsucursal" required />
     </div>
     <div class="col-12">
-      <input
-        type="button"
-        class="btn btn-primary"
-        id="add-product-button"
-        value="Agregar producto"
-      />
+      <input type="button" class="btn btn-primary" id="add-product-button" value="Agregar producto" />
     </div>
   </form>`;
 }
