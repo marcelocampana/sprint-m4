@@ -1,24 +1,35 @@
-import { inventory } from "../../utils/createInventory.js";
 import AddProduct from "./adminComponents/AddProduct.js";
 import Sidebar from "./adminComponents/Sidebar.js";
+import Product from "../../classes/product.js";
 
 const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();
 const addProductToStock = document.getElementById("add-product");
 addProductToStock.innerHTML = AddProduct();
 
-const addProductToStockButton = document.getElementById("add-product-button");
+// Obtner datos ingresados en el formulario
+let newProduct;
+let inputValue = document.getElementsByClassName("form-control");
+let sendButton = document.getElementById("add-product-button");
 
-addProductToStockButton.addEventListener("click", function () {
-  const productToAdded = {
-    // id: document.getElementById("id").value,
-    brand: document.getElementById("admin-add-brand").value,
-    description: document.getElementById("admin-add-description").value,
-    price: document.getElementById("admin-add-price").value,
-    imageUrl: document.getElementById("admin-add-imageUrl").value,
-    features: document.getElementById("admin-add-features").value,
-    stock: document.getElementById("admin-add-stock").value,
-  };
-  inventory.addProduct(productToAdded);
-  console.log(inventory.products);
-});
+sendButton.addEventListener("click", sendProduct);
+
+function sendProduct() {
+  let productData = [];
+  for (let i = 0; i < inputValue.length; i++) {
+    productData.push(inputValue[i].value);
+  }
+  newProduct = new Product(
+    parseInt(productData[0]),
+    productData[1],
+    parseInt(productData[2]),
+    productData[3],
+    parseInt(productData[4]),
+    productData[5],
+    productData[6],
+    parseInt(productData[7]),
+    parseInt(productData[8])
+  );
+  // console.log(newProduct);
+  newProduct.sendData();
+}
