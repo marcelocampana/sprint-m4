@@ -1,6 +1,6 @@
-import AddProduct from "./adminComponents/AddProduct.js";
-import Sidebar from "./adminComponents/Sidebar.js";
-import Product from "../../classes/product.js";
+import AddProduct from "../components/AddProduct.js";
+import Sidebar from "../components/Sidebar.js";
+import Product from "../../../classes/product.js";
 
 const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();

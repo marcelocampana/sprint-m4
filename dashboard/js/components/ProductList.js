@@ -15,26 +15,29 @@ export default function ProductList(productData) {
             <th scope="col">Acciones</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="product-table">
           ${products
             .filter((product) => product.idSucursal === 11)
             .map(
               (product, i) =>
-                `<tr>
+                `<tr id="tr--${product.id}">
           <th scope="row">${i + 1}</th>
           <td><a href="update-product.html?id=${product.id}">${
                   product.nombre
                 }</a></td>
           <td>${product.precio}</td>
           <td>${product.stock}</td>
-          <td><a class="me-2" href="update-product.html?id=${
+          <td class="d-flex"><div><a class="me-2" href="update-product.html?id=${
             product.id
-          }">${updateIcon}</a><button class="border-0 bg-transparent delete-button" type="button" id="remove-product-button-${
-                  product.id
-                }
+          }">${updateIcon}</a>
+          </div>
+          <div id="button-delete">
+          <button class="border-0 bg-transparent delete-button" type="button" id="remove-product-button-${
+            product.id
+          }
               " count=${product.id}>${deleteIcon} </button>
     
-    </button></td>
+    </button></div></td>
         </tr>`
             )
             .join("")}
