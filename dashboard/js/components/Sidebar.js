@@ -17,11 +17,11 @@ export default function Sidebar() {
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="index.html" class="nav-link active" aria-current="page">
+        <a href="index.html" class="nav-link text-white" aria-current="page">
           <svg class="bi pe-none me-2" width="16" height="16">
             <use xlink:href="#home"></use>
           </svg>
-          Dashboard
+          Todos los productos
         </a>
       </li>
       <li>

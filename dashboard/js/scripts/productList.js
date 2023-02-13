@@ -1,6 +1,5 @@
 //import BranchOffice from "../../classes/branchOffice.js";
 import { EndPointApi } from "../../../classes/endPointApi.js";
-import Product from "../../../classes/product.js";
 import ProductList from "../components/ProductList.js";
 import Sidebar from "../components/Sidebar.js";
 
@@ -8,14 +7,6 @@ const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();
 
 const productEndPoint = new EndPointApi("td-producto");
-productEndPoint.getRecord().then((products) => {
-  console.log(products);
-  products.forEach((product) => {
-    const newProducts = new Product({ ...product });
-    ProductList(newProducts.getProducts());
-    console.log(newProducts.getProducts());
-  });
-});
 
 ProductList(productEndPoint.getRecord());
 

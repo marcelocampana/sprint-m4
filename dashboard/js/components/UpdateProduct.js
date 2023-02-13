@@ -124,6 +124,9 @@ ${product[0].descripcion}</textarea
 
       const productEndPoint = new EndPointApi("td-producto/");
       productEndPoint.updateRecord(updatedProduct);
+      setTimeout(function () {
+        window.location.href = "/dashboard/pages/index.html";
+      }, 1000);
     });
   });
 }

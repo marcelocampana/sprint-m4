@@ -1,11 +1,14 @@
 import AddProduct from "../components/AddProduct.js";
 import Sidebar from "../components/Sidebar.js";
 import Product from "../../../classes/product.js";
+import { EndPointApi } from "../../../classes/endPointApi.js";
 
 const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();
 const addProductToStock = document.getElementById("add-product");
-addProductToStock.innerHTML = AddProduct();
+const categoryEndpoint = new EndPointApi("td-categoria");
+console.log(categoryEndpoint.getRecords());
+addProductToStock.innerHTML = AddProduct(categoryEndpoint.getRecords());
 
 // Obtner datos ingresados en el formulario
 let newProduct;
@@ -32,4 +35,7 @@ function sendProduct() {
   );
   // console.log(newProduct);
   newProduct.sendData();
+  setTimeout(function () {
+    window.location.href = "/dashboard/pages/index.html";
+  }, 1000);
 }

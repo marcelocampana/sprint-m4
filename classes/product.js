@@ -1,28 +1,25 @@
 import { fechData } from "../utils/fechData.js";
 export default class Product {
-  constructor(data) {
-    this.id = data.id;
-    this.name = data.nombre;
-    this.price = data.precio;
-    this.link = data.link;
-    this.stock = data.stock;
-    this.label = data.etiqueta;
-    this.description = data.descripcion;
-    this.idCategoria = data.idCategoria;
-    this.idSucursal = data.idSucursal;
-  }
-
-  addProducts() {
-    this.products = [];
-    this.products.push(this);
-    return this.products;
-  }
-
-  getProduct(id) {
-    this;
-  }
-  getProducts() {
-    return this.addProducts();
+  constructor(
+    id,
+    name,
+    price,
+    link,
+    stock,
+    label,
+    description,
+    idCategoria,
+    idSucursal
+  ) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.link = link;
+    this.stock = stock;
+    this.label = label;
+    this.description = description;
+    this.idCategoria = idCategoria;
+    this.idSucursal = idSucursal;
   }
 
   sendData() {

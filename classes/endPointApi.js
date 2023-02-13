@@ -8,7 +8,7 @@ export class EndPointApi {
     const options = {
       method: "GET",
     };
-    fechData(`https://bsite.net/metalflap/${this.endPoint}`, options);
+    return fechData(`https://bsite.net/metalflap/${this.endPoint}`, options);
   }
   getRecord() {
     const options = {
