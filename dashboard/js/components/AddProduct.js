@@ -1,12 +1,12 @@
 import { html } from "../../../utils/htmlRaw.js";
 
-export default function AddProduct(productCategories) {
-  console.log(productCategories);
+export default function AddProduct() {
   return html` <form class="mx-auto w-50 my-5">
     <h1 class="mt-3 ">Agregar producto</h1>
     <p class="mb-4">Ingresa los datos del producto a agregar</p>
     <div class="mb-3">
-      <input type="hidden" class="form-control" id="admin-add-id" required />
+      <label for="admin-add-id" class="form-label" disable>ID</label>
+      <input type="number" class="form-control" id="admin-add-id" required />
     </div>
     <div class="mb-3">
       <label for="admin-add-name" class="form-label" disable>Nombre</label>
@@ -43,7 +43,7 @@ export default function AddProduct(productCategories) {
       />
     </div>
     <div class="mb-3">
-      <label for="admin-add-idcategory" class="form-label">Categoría</label>
+      <label for="admin-add-idcategory" class="form-label">ID Categoría</label>
       <input
         type="number"
         class="form-control"
@@ -70,18 +70,3 @@ export default function AddProduct(productCategories) {
     </div>
   </form>`;
 }
-
-/*       <select class="form-control" id="admin-add-idcategory" required />
-
-   ${productCategories.then((categories) => {
-     console.log(categories);
-     categories
-       .filter((category) => category.id === 115 || category.id === 116)
-       .forEach((item) => {
-         console.log(item);
-         const option = document.getElementById("admin-add-idcategory");
-         option.value = item.id;
-         option.text = item.nombre;
-       });
-   })}
-      </select> */
