@@ -9,4 +9,5 @@ const pageId = window.location.search.split("=");
 
 const productEndPoint = new EndPointApi(`td-producto/${pageId[1]}`);
 
-UpdateProduct(productEndPoint.getRecord());
+const getCategory = new EndPointApi("td-categoria");
+UpdateProduct(productEndPoint.getRecord(), getCategory.getRecords());

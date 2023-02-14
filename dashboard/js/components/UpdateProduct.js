@@ -1,7 +1,7 @@
 import { html } from "../../../utils/htmlRaw.js";
 import { EndPointApi } from "../../../classes/endPointApi.js";
 
-export default function UpdateProduct(product) {
+export default function UpdateProduct(product, categories) {
   product.then((product) => {
     const htmlUpdateProduct = html` <form class="mx-auto w-50 my-5">
       <h1 class="mt-3 ">Modificar producto</h1>
@@ -76,11 +76,10 @@ ${product[0].descripcion}</textarea
       <div class="mb-3">
         <label for="update-id-category" class="form-label">Categorias</label>
         <input
-          type="text"
-          class="form-control"
+          type="number"
           id="update-id-category"
+          class="form-control"
           value="${product[0].idCategoria}"
-          disabled
         />
       </div>
       <div class="mb-3">
