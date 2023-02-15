@@ -1,9 +1,7 @@
-import { EndPointApi } from "./endPointApi.js";
+import EndPointApi from "./endPointApi.js";
 
 export default class Category {
-  constructor(id, nombre) {
-    this.id = id;
-    this.name = nombre;
+  constructor() {
     this.endPoint = "td-categoria";
   }
 

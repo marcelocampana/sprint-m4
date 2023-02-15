@@ -1,22 +1,19 @@
-import { EndPointApi } from "../../../classes/endPointApi.js";
+import Product from "../../../classes/product.js";
 import ProductList from "../components/ProductList.js";
 import Sidebar from "../components/Sidebar.js";
 
 const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();
 
-const productEndPoint = new EndPointApi("td-producto");
+const products = new Product();
 
-ProductList(productEndPoint.getRecord());
+ProductList(products.getAllProducts());
 
 function deleteRecord() {
   const deleteButton = document.querySelectorAll(".delete-button");
   deleteButton.forEach((button) => {
     button.addEventListener("click", function () {
-      const productEndPoint = new EndPointApi(
-        `td-producto/${button.attributes.count.value}`
-      );
-      productEndPoint.deleteRecord(button.attributes.count.value);
+      products.deleteProduct(button.attributes.count.value);
       const producTable = document.getElementById("product-table");
       const childToDelete = document.getElementById(
         `tr--${button.attributes.count.value}`
@@ -26,4 +23,4 @@ function deleteRecord() {
   });
 }
 
-productEndPoint.getRecord().then(() => deleteRecord());
+products.getAllProducts().then(() => deleteRecord());

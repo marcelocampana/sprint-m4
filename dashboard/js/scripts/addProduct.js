@@ -1,40 +1,34 @@
 import AddProduct from "../components/AddProduct.js";
 import Sidebar from "../components/Sidebar.js";
 import Product from "../../../classes/product.js";
-import { EndPointApi } from "../../../classes/endPointApi.js";
+
+const products = new Product();
 
 const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();
+
 const addProductToStock = document.getElementById("add-product");
-const categoryEndpoint = new EndPointApi("td-categoria");
-addProductToStock.innerHTML = AddProduct(categoryEndpoint.getRecords());
+addProductToStock.innerHTML = AddProduct();
 
-// Obtner datos ingresados en el formulario
-let newProduct;
-let inputValue = document.getElementsByClassName("form-control");
-let sendButton = document.getElementById("add-product-button");
+function addRecordToAPi() {
+  const addProductButton = document.getElementById("add-product-button");
+  addProductButton.addEventListener("click", function () {
+    const productToAdded = {
+      id: 0,
+      nombre: document.getElementById("add-name").value,
+      precio: document.getElementById("add-price").value,
+      link: document.getElementById("add-link").value,
+      stock: parseInt(document.getElementById("add-stock").value),
+      etiqueta: document.getElementById("add-label").value,
+      descripcion: document.getElementById("add-description").value,
+      idCategoria: parseInt(document.getElementById("add-category").value),
+    };
 
-sendButton.addEventListener("click", sendProduct);
-
-function sendProduct() {
-  let productData = [];
-  for (let i = 0; i < inputValue.length; i++) {
-    productData.push(inputValue[i].value);
-  }
-  newProduct = new Product(
-    parseInt(productData[0]),
-    productData[1],
-    parseInt(productData[2]),
-    productData[3],
-    parseInt(productData[4]),
-    productData[5],
-    productData[6],
-    parseInt(productData[7]),
-    parseInt(productData[8])
-  );
-  // console.log(newProduct);
-  newProduct.sendData();
-  /*   setTimeout(function () {
+    products.addProduct(productToAdded);
+    /*   setTimeout(function () {
     window.location.href = "/dashboard/pages/index.html";
   }, 1000); */
+  });
 }
+
+products.getAllProducts().then(() => addRecordToAPi());

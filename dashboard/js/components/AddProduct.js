@@ -8,49 +8,31 @@ export default function AddProduct() {
     <h1 class="mt-3 ">Agregar producto</h1>
     <p class="mb-4">Ingresa los datos del producto a agregar</p>
     <div class="mb-3">
-      <label for="admin-add-id" class="form-label" disable>ID</label>
-      <input type="number" class="form-control" id="admin-add-id" required />
+      <label for="add-name" class="form-label" disable>Nombre</label>
+      <input type="text" class="form-control" id="add-name" required />
     </div>
     <div class="mb-3">
-      <label for="admin-add-name" class="form-label" disable>Nombre</label>
-      <input type="text" class="form-control" id="admin-add-name" required />
+      <label for="add-price" class="form-label" disable>Precio</label>
+      <input type="number" class="form-control" id="add-price" required />
     </div>
     <div class="mb-3">
-      <label for="admin-add-price" class="form-label" disable>Precio</label>
-      <input type="number" class="form-control" id="admin-add-price" required />
+      <label for="add-link" class="form-label">URL del imagen</label>
+      <input type="text" class="form-control" id="add-link" required />
     </div>
     <div class="mb-3">
-      <label for="admin-add-imageUrl" class="form-label">URL del imagen</label>
-      <input
-        type="text"
-        class="form-control"
-        id="admin-add-imageUrl"
-        required
-      />
+      <label for="add-stock" class="form-label" disable>Stock</label>
+      <input type="number" class="form-control" id="add-stock" required />
     </div>
     <div class="mb-3">
-      <label for="admin-add-stock" class="form-label" disable>Stock</label>
-      <input type="number" class="form-control" id="admin-add-stock" required />
+      <label for="add-label" class="form-label">Etiqueta</label>
+      <input type="text" class="form-control" id="add-label" required />
     </div>
     <div class="mb-3">
-      <label for="admin-add-label" class="form-label">Etiqueta</label>
-      <input type="text" class="form-control" id="admin-add-label" required />
-    </div>
-    <div class="mb-3">
-      <label for="admin-add-description" class="form-label">Descripción</label>
-      <input
-        type="text"
-        class="form-control"
-        id="admin-add-description"
-        required
-      />
-    </div>
-    <div class="mb-3">
-      <label for="admin-add-categories" class="form-label">Categoría</label>
-      <select id="admin-add-categories" class="form-control">
+      <label for="add-category" class="form-label">Categoría</label>
+      <select id="add-category" class="form-control">
         <option>Selecciona una categoria</option>
         ${categories.then((categories) => {
-          const option = document.getElementById("admin-add-categories");
+          const option = document.getElementById("add-category");
           categories.forEach((category) => {
             option.innerHTML += `<option value=${category.id}>${category.nombre}</option>`;
           });
@@ -58,14 +40,10 @@ export default function AddProduct() {
       </select>
     </div>
     <div class="mb-3">
-      <label for="admin-add-idsucursal" class="form-label">ID Sucursal</label>
-      <input
-        type="number"
-        class="form-control"
-        id="admin-add-idsucursal"
-        required
-      />
+      <label for="add-description" class="form-label">Descripción</label>
+      <textarea rows="3" class="form-control" id="add-description"></textarea>
     </div>
+
     <div class="col-12">
       <input
         type="button"

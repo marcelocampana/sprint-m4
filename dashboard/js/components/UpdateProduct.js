@@ -1,5 +1,4 @@
 import { html } from "../../../utils/htmlRaw.js";
-import { EndPointApi } from "../../../classes/endPointApi.js";
 import Category from "../../../classes/category.js";
 
 const categories = new Category().getAllCategories();
@@ -7,7 +6,7 @@ const categories = new Category().getAllCategories();
 export default function UpdateProduct(product) {
   product.then((product) => {
     console.log(product);
-    const htmlUpdateProduct = html` <form class="mx-auto w-50 my-5">
+    return html` <form class="mx-auto w-50 my-5">
       <h1 class="mt-3 ">Modificar producto</h1>
       <p class="mb-4">Ingresa los datos a modificar</p>
 
@@ -70,14 +69,26 @@ export default function UpdateProduct(product) {
           required
         />
       </div>
-
+    
       <div class="mb-3">
         <label for="update-description" class="form-label">Descripción</label>
         <textarea rows="3" class="form-control" id="update-description">
 ${product[0].descripcion}</textarea
         >
       </div>
-      <div class="mb-3">
+
+     <div class="col-12">
+      <input
+        type="button"
+        class="btn btn-primary"
+        id="update-product-button"
+        value="Agregar producto"
+      />
+    </form>`;
+  });
+}
+
+/*   <div class="mb-3">
         <label for="update-id-category" class="form-label">Categoría</label>
         <select id="update-id-category" class="form-control">
           ${categories.then((categories) => {
@@ -90,53 +101,4 @@ ${product[0].descripcion}</textarea
             });
           })}
         </select>
-      </div>
-      <div class="mb-3">
-        <label for="update-id-branch" class="form-label">Sucursal</label>
-        <input
-          type="text"
-          class="form-control"
-          id="update-id-branch"
-          value="${product[0].idSucursal}"
-          disabled
-        />
-      </div>
-      <div class="col-12" id="button-position"></div>
-    </form>`;
-
-    const updateProduct = document.getElementById("update-product");
-    updateProduct.innerHTML = htmlUpdateProduct;
-
-    const button = document.createElement("button");
-    button.setAttribute("id", "update-product-button");
-    button.setAttribute("type", "button");
-    button.className = "btn btn-primary";
-    button.innerText = "Modificar";
-
-    const buttonPosition = document.getElementById("button-position");
-    buttonPosition.appendChild(button);
-
-    const addProductButton = document.getElementById("update-product-button");
-    addProductButton.addEventListener("click", function () {
-      const updatedProduct = {
-        id: parseInt(document.getElementById("update-id").value),
-        nombre: document.getElementById("update-name").value,
-        precio: document.getElementById("update-price").value,
-        link: document.getElementById("update-link").value,
-        stock: parseInt(document.getElementById("update-stock").value),
-        etiqueta: document.getElementById("update-label").value,
-        descripcion: document.getElementById("update-description").value,
-        idCategoria: parseInt(
-          document.getElementById("update-id-category").value
-        ),
-        idSucursal: parseInt(document.getElementById("update-id-branch").value),
-      };
-
-      const productEndPoint = new EndPointApi("td-producto");
-      productEndPoint.updateRecord(updatedProduct);
-      /*    setTimeout(function () {
-        window.location.href = "/dashboard/pages/index.html";
-      }, 1000); */
-    });
-  });
-}
+      </div> */
