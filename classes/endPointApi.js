@@ -27,6 +27,7 @@ export class EndPointApi {
   }
 
   updateRecord(record) {
+    console.log(record);
     const options = {
       method: "PUT",
       headers: { "Content-type": "application/json;charset=UTF-8" },

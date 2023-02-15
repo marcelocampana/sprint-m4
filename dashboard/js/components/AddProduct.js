@@ -1,4 +1,7 @@
+import Category from "../../../classes/category.js";
 import { html } from "../../../utils/htmlRaw.js";
+
+const categories = new Category().getAllCategories();
 
 export default function AddProduct() {
   return html` <form class="mx-auto w-50 my-5">
@@ -43,13 +46,16 @@ export default function AddProduct() {
       />
     </div>
     <div class="mb-3">
-      <label for="admin-add-idcategory" class="form-label">ID Categoría</label>
-      <input
-        type="number"
-        class="form-control"
-        id="admin-add-idcategory"
-        required
-      />
+      <label for="admin-add-categories" class="form-label">Categoría</label>
+      <select id="admin-add-categories" class="form-control">
+        <option>Selecciona una categoria</option>
+        ${categories.then((categories) => {
+          const option = document.getElementById("admin-add-categories");
+          categories.forEach((category) => {
+            option.innerHTML += `<option value=${category.id}>${category.nombre}</option>`;
+          });
+        })}
+      </select>
     </div>
     <div class="mb-3">
       <label for="admin-add-idsucursal" class="form-label">ID Sucursal</label>

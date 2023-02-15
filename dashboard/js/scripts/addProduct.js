@@ -7,7 +7,6 @@ const sidebar = document.getElementById("sidebar");
 sidebar.innerHTML = Sidebar();
 const addProductToStock = document.getElementById("add-product");
 const categoryEndpoint = new EndPointApi("td-categoria");
-console.log(categoryEndpoint.getRecords());
 addProductToStock.innerHTML = AddProduct(categoryEndpoint.getRecords());
 
 // Obtner datos ingresados en el formulario
@@ -35,7 +34,7 @@ function sendProduct() {
   );
   // console.log(newProduct);
   newProduct.sendData();
-  setTimeout(function () {
+  /*   setTimeout(function () {
     window.location.href = "/dashboard/pages/index.html";
-  }, 1000);
+  }, 1000); */
 }

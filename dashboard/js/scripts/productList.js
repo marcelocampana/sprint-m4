@@ -1,4 +1,3 @@
-//import BranchOffice from "../../classes/branchOffice.js";
 import { EndPointApi } from "../../../classes/endPointApi.js";
 import ProductList from "../components/ProductList.js";
 import Sidebar from "../components/Sidebar.js";
@@ -28,10 +27,3 @@ function deleteRecord() {
 }
 
 productEndPoint.getRecord().then(() => deleteRecord());
-
-//creacion de sucursal
-/* const branchEndPoint = new EndPointApi("td-sucursal");
-const branch = new BranchOffice(11, "Festina");
-console.log(branch);
-
-branchEndPoint.addRecord({ id: branch.id, nombre: branch.name }); */

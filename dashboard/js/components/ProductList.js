@@ -18,7 +18,7 @@ export default function ProductList(productData) {
         </thead>
         <tbody id="product-table">
           ${products
-            .filter((product) => product.idSucursal === 11)
+            .filter((product) => product.idSucursal === 4)
             .map(
               (product, i) =>
                 `<tr id="tr--${product.id}">
