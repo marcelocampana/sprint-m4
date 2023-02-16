@@ -11,14 +11,21 @@ ProductList(products.getAllProducts());
 
 function deleteRecord() {
   const deleteButton = document.querySelectorAll(".delete-button");
+
   deleteButton.forEach((button) => {
     button.addEventListener("click", function () {
-      products.deleteProduct(button.attributes.count.value);
-      const producTable = document.getElementById("product-table");
-      const childToDelete = document.getElementById(
-        `tr--${button.attributes.count.value}`
+      const userOtion = confirm(
+        `Esta acción eliminará el producto con ID ${button.attributes.count.value}`
       );
-      producTable.removeChild(childToDelete);
+
+      if (userOtion) {
+        products.deleteProduct(button.attributes.count.value);
+        const producTable = document.getElementById("product-table");
+        const childToDelete = document.getElementById(
+          `tr--${button.attributes.count.value}`
+        );
+        producTable.removeChild(childToDelete);
+      }
     });
   });
 }

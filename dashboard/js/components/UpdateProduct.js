@@ -71,12 +71,12 @@ export default function UpdateProduct(product) {
         />
       </div>
       <div class="mb-3">
-        <label for="update-id-category" class="form-label">Categoría</label>
-        <select id="update-id-category" class="form-control">
+        <label for="update-category" class="form-label">Categoría</label>
+        <select id="update-category" class="form-control">
           ${categories.then((categories) => {
-            const option = document.getElementById("update-id-category");
+            const option = document.getElementById("update-category");
             categories.forEach((category) => {
-              console.log(product[0].idCategoria, category.id);
+              //   console.log(product[0].idCategoria, category.id);
               option.innerHTML += `<option value=${category.id} ${
                 category.id === product[0].idCategoria && "selected='selected'"
               }>${category.nombre}</option>`;
@@ -96,7 +96,7 @@ ${product[0].descripcion}</textarea
           type="button"
           class="btn btn-primary"
           id="update-product-button"
-          value="Agregar producto"
+          value="Modificar producto"
         />
       </div>
     </form>`;

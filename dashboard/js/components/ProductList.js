@@ -8,7 +8,7 @@ export default function ProductList(productData) {
       <table class="table table-striped ms-5">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID#</th>
             <th scope="col" style="width:120px">Imagen</th>
             <th scope="col">Producto</th>
             <th scope="col">Precio</th>
@@ -20,14 +20,14 @@ export default function ProductList(productData) {
           ${products
             .filter((product) => product.idSucursal === 4)
             .map(
-              (product, i) =>
+              (product) =>
                 `<tr id="tr--${product.id}">
-          <th scope="row">${i + 1}</th>
+          <th scope="row">${product.id}</th>
           <td><img src="${product.link}" class="w-50"/></td>
           <td><a href="update-product.html?id=${product.id}">${
                   product.nombre
                 }</a></td>
-          <td>${product.precio}</td>
+          <td>   ${"$" + Intl.NumberFormat("es-CL").format(product.precio)}</td>
           <td>${product.stock}</td>
           <td class="d-block-inline"><a class="me-2" href="update-product.html?id=${
             product.id

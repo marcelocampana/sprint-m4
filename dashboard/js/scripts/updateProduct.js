@@ -21,14 +21,14 @@ function updateProductOnAPi() {
       stock: parseInt(document.getElementById("update-stock").value),
       etiqueta: document.getElementById("update-label").value,
       descripcion: document.getElementById("update-description").value,
-      idCategoria: 11, //parseInt(document.getElementById("update-id-category").value ),
+      idCategoria: parseInt(document.getElementById("update-category").value),
     };
 
     products.updateProduct(updatedProduct);
 
-    /*    setTimeout(function () {
-        window.location.href = "/dashboard/pages/index.html";
-      }, 1000); */
+    setTimeout(function () {
+      window.location.href = "/dashboard/pages/index.html";
+    }, 1000);
   });
 }
 

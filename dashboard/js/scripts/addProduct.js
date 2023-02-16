@@ -25,9 +25,9 @@ function addRecordToAPi() {
     };
 
     products.addProduct(productToAdded);
-    /*   setTimeout(function () {
-    window.location.href = "/dashboard/pages/index.html";
-  }, 1000); */
+    setTimeout(function () {
+      window.location.href = "/dashboard/pages/index.html";
+    }, 1000);
   });
 }
 

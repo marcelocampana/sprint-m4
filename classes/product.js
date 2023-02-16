@@ -25,7 +25,6 @@ export default class Product {
   addProduct(product) {
     const endPointApi = new EndPointApi(this.endPoint);
     const data = { idSucursal: this.idBranch, ...product };
-    console.log(data);
     endPointApi.addRecord(data);
   }
 
