@@ -8,8 +8,7 @@ sidebar.innerHTML = Sidebar();
 
 const pageId = window.location.search.split("=");
 
-const updateProduct = document.getElementById("update-product");
-updateProduct.innerHTML = UpdateProduct(products.getProduct(pageId[1]));
+UpdateProduct(products.getProduct(pageId[1]));
 
 function updateProductOnAPi() {
   const updateProductButton = document.getElementById("update-product-button");
@@ -22,9 +21,7 @@ function updateProductOnAPi() {
       stock: parseInt(document.getElementById("update-stock").value),
       etiqueta: document.getElementById("update-label").value,
       descripcion: document.getElementById("update-description").value,
-      idCategoria: parseInt(
-        document.getElementById("update-id-category").value
-      ),
+      idCategoria: 11, //parseInt(document.getElementById("update-id-category").value ),
     };
 
     products.updateProduct(updatedProduct);

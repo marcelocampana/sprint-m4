@@ -5,8 +5,7 @@ const categories = new Category().getAllCategories();
 
 export default function UpdateProduct(product) {
   product.then((product) => {
-    console.log(product);
-    return html` <form class="mx-auto w-50 my-5">
+    const htmlRendered = html` <form class="mx-auto w-50 my-5">
       <h1 class="mt-3 ">Modificar producto</h1>
       <p class="mb-4">Ingresa los datos a modificar</p>
 
@@ -19,6 +18,8 @@ export default function UpdateProduct(product) {
           value="${product[0].id}"
           disabled
         />
+      </div>
+      <div class="mb-3">
         <label for="update-name" class="form-label">Nombre</label>
         <input
           type="text"
@@ -69,26 +70,7 @@ export default function UpdateProduct(product) {
           required
         />
       </div>
-    
       <div class="mb-3">
-        <label for="update-description" class="form-label">Descripción</label>
-        <textarea rows="3" class="form-control" id="update-description">
-${product[0].descripcion}</textarea
-        >
-      </div>
-
-     <div class="col-12">
-      <input
-        type="button"
-        class="btn btn-primary"
-        id="update-product-button"
-        value="Agregar producto"
-      />
-    </form>`;
-  });
-}
-
-/*   <div class="mb-3">
         <label for="update-id-category" class="form-label">Categoría</label>
         <select id="update-id-category" class="form-control">
           ${categories.then((categories) => {
@@ -101,4 +83,23 @@ ${product[0].descripcion}</textarea
             });
           })}
         </select>
-      </div> */
+      </div>
+      <div class="mb-3">
+        <label for="update-description" class="form-label">Descripción</label>
+        <textarea rows="3" class="form-control" id="update-description">
+${product[0].descripcion}</textarea
+        >
+      </div>
+
+      <div class="col-12">
+        <input
+          type="button"
+          class="btn btn-primary"
+          id="update-product-button"
+          value="Agregar producto"
+        />
+      </div>
+    </form>`;
+    document.getElementById("update-product").innerHTML = htmlRendered;
+  });
+}

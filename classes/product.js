@@ -32,7 +32,7 @@ export default class Product {
   updateProduct(product) {
     const endPointApi = new EndPointApi(this.endPoint);
     const data = { idSucursal: this.idBranch, ...product };
-    endPointApi.addRecord(data);
+    endPointApi.updateRecord(data);
   }
   deleteProduct(productId) {
     const endPointApi = new EndPointApi(`${this.endPoint}/${productId}`);
