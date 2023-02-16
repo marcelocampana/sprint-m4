@@ -1,19 +1,26 @@
-import { fechData } from "../utils/fechData.js";
+import { fechData } from "../../utils/fechData.js";
 
-export class EndPointApi {
+export default class EndPointApi {
   constructor(endPoint) {
     this.endPoint = endPoint;
   }
-  getRecord() {
+  getRecords() {
     const options = {
       method: "GET",
     };
     return fechData(`https://bsite.net/metalflap/${this.endPoint}`, options);
   }
+  getRecord(recordId) {
+    const options = {
+      method: "GET",
+    };
+    return fechData(
+      `https://bsite.net/metalflap/${this.endPoint}/${recordId}`,
+      options
+    );
+  }
 
   addRecord(record) {
-    console.log(record);
-
     const options = {
       method: "POST",
       headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -26,9 +33,7 @@ export class EndPointApi {
     const options = {
       method: "PUT",
       headers: { "Content-type": "application/json;charset=UTF-8" },
-      body: JSON.stringify({
-        record,
-      }),
+      body: JSON.stringify(record),
     };
 
     fechData(`https://bsite.net/metalflap/${this.endPoint}`, options);

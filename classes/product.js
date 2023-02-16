@@ -1,34 +1,40 @@
-import { fechData } from "../utils/fechData.js";
+import EndPointApi from "./endPointApi.js";
+
 export default class Product {
-  constructor(id, name, price, link, stock, label, description, idCategoria, idSucursal) {
-    this.id = id;
-    this.name = name;
-    this.price = price;
-    this.link = link;
-    this.stock = stock;
-    this.label = label;
-    this.description = description;
-    this.idCategoria = idCategoria;
-    this.idSucursal = idSucursal;
+  constructor() {
+    this.idBranch = 4;
+    this.products = [];
+    this.endPoint = "td-producto";
+  }
+  async getProduct(productId) {
+    const getProductFromApi = new EndPointApi(`${this.endPoint}/${productId}`);
+    const products = await getProductFromApi.getRecords();
+    const data = products.map((product) => product);
+    return data;
   }
 
-  sendData () {
-    let data = {
-      id: this.id,
-      nombre: this.name, 
-      precio: this.price,
-      link: this.link,
-      stock: this.stock,
-      etiqueta: this.label,
-      descripcion: this.description,
-      idCategoria: this.idCategoria,
-      idSucursal: this.idSucursal
-    }
-    const options = {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {"Content-type": "application/json; charset=UTF-8"}
-      }
-    fechData('https://bsite.net/metalflap/td-producto', options)
+  async getAllProducts() {
+    const getProductFromApi = new EndPointApi(this.endPoint);
+    const products = await getProductFromApi.getRecords();
+    const result = products.filter(
+      (product) => product.idSucursal === this.idBranch
+    );
+    const data = result.map((product) => product);
+    return data;
+  }
+  addProduct(product) {
+    const endPointApi = new EndPointApi(this.endPoint);
+    const data = { idSucursal: this.idBranch, ...product };
+    endPointApi.addRecord(data);
+  }
+
+  updateProduct(product) {
+    const endPointApi = new EndPointApi(this.endPoint);
+    const data = { idSucursal: this.idBranch, ...product };
+    endPointApi.updateRecord(data);
+  }
+  deleteProduct(productId) {
+    const endPointApi = new EndPointApi(`${this.endPoint}/${productId}`);
+    endPointApi.deleteRecord(productId);
   }
 }
