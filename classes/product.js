@@ -3,7 +3,6 @@ import EndPointApi from "./endPointApi.js";
 export default class Product {
   constructor() {
     this.idBranch = 4;
-    this.products = [];
     this.endPoint = "td-producto";
   }
   async getProduct(productId) {
